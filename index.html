@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfólio do JH</title>
+</head>
+
+<body>
+    <div class="particulas"></div>
+
+
+    <nav class="navegação">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+
+            <li>
+                <a href="#contatos" class="menu-link">Contatos</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+        <img src="./img/JH.jfif" alt="foto de José Henrique" class="foto-perfil">
+        <h1>José Henrique</h1>
+        <p class="cabecalho-sub">Desenvolvedor Jr</p>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Olá, meu nome é José Henrique, tenho 21 anos e sou um desenvolvedor Junior. Estou sempre aprendendo e
+                buscando melhorar minhas habilidades na área de programação,
+                Atualmente, estou focado em aprimorar meus conhecimentos em HTML, CSS e JavaScript, além de explorar
+                outras tecnologias que possam me ajudar a criar projetos mais complexos e interessantes.
+            </p>
+        </div>
+
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projeto-card">
+                <img src="./img/projeto 1.png" alt="projeto 1" class="projeto-imagem">
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Calculadora JH</h3>
+                    <p class="paragrafo-projeto">Primeira pratica apos aulas teoricas</p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <img src="./img/placa.png" alt="projeto 2" class="projeto-imagem">
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Loja virtual</h3>
+                    <p class="paragrafo-projeto">Auto atendimento, cardapio digital e layout costumizado. </p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <img src="./img/placa.png" alt="projeto 3" class="projeto-imagem">
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Automatizando tarefas</h3>
+                    <p class="paragrafo-projeto">Desenvolvimento de um robo para a otimização de tarefas e projetos.</p>
+                </div>
+            </div>
+
+    </section>
+
+    <section id="contatos" class="contatos">
+        <h2 class="contatos-titulo">Entre em Contato</h2>
+
+        <form class="formulario-contato" id="formulario" onsubmit="enviarwpp(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="6" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar Mensagem</button>
+        </form>
+
+    </section>
+
+    <script>
+        function enviarwpp(event) {
+event.preventDefault(); // Impede o envio do formulário padrão
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5521976674534'
+
+            const texto = `Olá! meu nome é ${nome}, ${mensagem}`
+            const msgformatada = encodeURIComponent(texto)
+
+            const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${msgformatada}`;
+
+            window.open(url, '_blank');
+        }
+
+    </script>
+</body>
+
+</html>
